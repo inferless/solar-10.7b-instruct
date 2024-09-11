@@ -10,7 +10,7 @@ Check out [this tutorial](https://tutorials.inferless.com/deploy-quantized-versi
 - GitHub/GitLab template creation with app.py and config.yaml.
 - Model class in app.py with initialize, infer, and finalize functions.
 - Custom runtime creation with necessary system and Python packages.
-- Model import via GitHub with input/output parameters in JSON.
+- Model import via GitHub with input_schema.py.
 - Recommended GPU: NVIDIA A100 for optimal performance.
 - Custom runtime selection in advanced configuration.
 - Final review and deployment on the Inferless platform.
@@ -44,44 +44,6 @@ Select the PyTorch as framework and choose **Repo(custom code)** as your model s
 After the create model step, while setting the configuration for the model make sure to select the appropriate runtime.
 
 Enter all the required details to Import your model. Refer [this link](https://docs.inferless.com/integrations/github-custom-code) for more information on model import.
-
-The following is a sample Input and Output JSON for this model which you can use while importing this model on Inferless.
-
-### Input
-```json
-{
-    "inputs": [
-      {
-        "data": [
-          "What is an AI?"
-        ],
-        "name": "prompt",
-        "shape": [
-          1
-        ],
-        "datatype": "BYTES"
-      }
-    ]
-}
-```
-
-### Output
-```json
-{
-    "outputs": [
-      {
-        "data": [
-          "data"
-        ],
-        "name": "generated_result",
-        "shape": [
-          1
-        ],
-        "datatype": "BYTES"
-      }
-    ]
-}
-```
 
 ---
 ## Curl Command
