@@ -5,4 +5,5 @@ build:
     - "vllm==0.2.6"
     - "transformers==4.36.2"
     - "accelerate==0.25.0"
-    - "huggingface-hub==0.25.2"
+    - "hf-transfer==0.1.9"
+    - "huggingface-hub==0.29.1"
