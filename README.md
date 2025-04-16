@@ -5,7 +5,6 @@ Check out [this tutorial](https://tutorials.inferless.com/deploy-quantized-versi
 
 ## TL;DR:
 - Deployment of Deploy SOLAR-10.7B-Instruct model using [vLLM](https://github.com/vllm-project/vllm).
-
 - By using the vLLM, you can expect an average latency of 1.37 sec, generating an average of 111.54 tokens/sec where each token took 8.97 ms and an average cold start time of 11.69sec using an A100 GPU(80GB).
 - Dependencies defined in `inferless-runtime-config.yaml`.
 - GitHub/GitLab template creation with `app.py`, `inferless-runtime-config.yaml` and `inferless.yaml`.
