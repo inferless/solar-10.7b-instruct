@@ -1,49 +1,40 @@
 # Tutorial - Deploy SOLAR-10.7B-Instruct using Inferless
 
+SOLAR-10.7B-v1.0 is a 10.7-billion-parameter language model by UpStage, fine-tuned for advanced text generation, precise instruction-following, and diverse NLP applications, delivering remarkably robust performance across creative and enterprise tasks at scale.
 Check out [this tutorial](https://tutorials.inferless.com/deploy-quantized-version-of-solar-10.7b-instruct-using-inferless) which will guide you through the process of deploying a SOLAR-10.7B-Instruct model using Inferless.
 
-## TL;DR - Deploy SOLAR-10.7B-Instruct using Inferless:
+## TL;DR:
 - Deployment of Deploy SOLAR-10.7B-Instruct model using [vLLM](https://github.com/vllm-project/vllm).
 
 - By using the vLLM, you can expect an average latency of 1.37 sec, generating an average of 111.54 tokens/sec where each token took 8.97 ms and an average cold start time of 11.69sec using an A100 GPU(80GB).
-- Dependencies defined in config.yaml.
-- GitHub/GitLab template creation with app.py and config.yaml.
-- Model class in app.py with initialize, infer, and finalize functions.
+- Dependencies defined in `inferless-runtime-config.yaml`.
+- GitHub/GitLab template creation with `app.py`, `inferless-runtime-config.yaml` and `inferless.yaml`.
+- Model class in `app.py` with `initialize`, `infer`, and `finalize` functions.
 - Custom runtime creation with necessary system and Python packages.
-- Model import via GitHub with input_schema.py.
-- Recommended GPU: NVIDIA A100 for optimal performance.
+- Model import via GitHub with `input_schema.py` file.
+- Recommended GPU: NVIDIA A100.
 - Custom runtime selection in advanced configuration.
 - Final review and deployment on the Inferless platform.
-
----
-## Prerequisites
-- **Git**. You would need git installed on your system if you wish to customize the repo after forking.
-- **Python>=3.8**. You would need Python to customize the code in the app.py according to your needs.
-- **Curl**. You would need Curl if you want to make API calls from the terminal itself.
-
----
-## Quick Tutorial on "How to Deploy" on Inferless
-Here is a quick start to help you get up and running with this template on Inferless.
-
-### Download the config and Create a runtime 
-Get started by downloading the config.yaml file and go to Inferless dashboard and create a custom runtime.
-
-Quickly add this as a Custom runtime.
 
 ### Fork the Repository
 Get started by forking the repository. You can do this by clicking on the fork button in the top right corner of the repository page.
 
 This will create a copy of the repository in your own GitHub account, allowing you to make changes and customize it according to your needs.
 
+### Create a Custom Runtime in Inferless
+To access the custom runtime window in Inferless, simply navigate to the sidebar and click on the Create new Runtime button. A pop-up will appear.
+
+Next, provide a suitable name for your custom runtime and proceed by uploading the **inferless-runtime-config.yaml** file given above. Finally, ensure you save your changes by clicking on the save button.
 
 ### Import the Model in Inferless
-Log in to your inferless account, select the workspace you want the model to be imported into and click the Add Model button.
+Log in to your inferless account, select the workspace you want the model to be imported into and click the `Add a custom model` button.
 
-Select the PyTorch as framework and choose **Repo(custom code)** as your model source and use the forked repo URL as the **Model URL**.
+- Select `Github` as the method of upload from the Provider list and then select your Github Repository and the branch.
+- Choose the type of machine, and specify the minimum and maximum number of replicas for deploying your model.
+- Configure Custom Runtime ( If you have pip or apt packages), choose Volume, Secrets and set Environment variables like Inference Timeout / Container Concurrency / Scale Down Timeout
+- Once you click “Continue,” click Deploy to start the model import process.
 
-After the create model step, while setting the configuration for the model make sure to select the appropriate runtime.
-
-Enter all the required details to Import your model. Refer [this link](https://docs.inferless.com/integrations/github-custom-code) for more information on model import.
+Enter all the required details to Import your model. Refer [this link](https://docs.inferless.com/integrations/git-custom-code/git--custom-code) for more information on model import.
 
 ---
 ## Curl Command
